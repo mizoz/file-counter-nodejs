@@ -1,22 +1,31 @@
 # File Counter Node.js
 
-A command-line tool to count lines, words, and characters in files.
+[![npm Version](https://img.shields.io/npm/v/file-counter-nodejs?style=flat-square)](https://www.npmjs.com/package/file-counter-nodejs)
+[![npm Downloads](https://img.shields.io/npm/dm/file-counter-nodejs?style=flat-square)](https://www.npmjs.com/package/file-counter-nodejs)
+[![License](https://img.shields.io/npm/l/file-counter-nodejs?style=flat-square)](LICENSE)
+[![Node Version](https://img.shields.io/node/v/file-counter-nodejs?style=flat-square)](https://www.npmjs.com/package/file-counter-nodejs)
+[![GitHub Stars](https://img.shields.io/github/stars/mizoz/file-counter-nodejs?style=flat-square)](https://github.com/mizoz/file-counter-nodejs)
+
+> A Node.js CLI tool for counting lines, words, and characters in files.
 
 ## Features
 
-- Count lines, words, and characters in files
-- Support for multiple files
+- Count lines in files
+- Count words in files
+- Count characters in files
 - Recursive directory counting
-- File type filtering
-- Multiple output formats
+- Multiple file support
+- JavaScript/TypeScript API
 
 ## Installation
+
+### From npm
 
 ```bash
 npm install -g file-counter-nodejs
 ```
 
-Or clone and install locally:
+### From Source
 
 ```bash
 git clone https://github.com/mizoz/file-counter-nodejs.git
@@ -26,39 +35,48 @@ npm install
 
 ## Usage
 
-```bash
-# Count all files in directory
-file-counter .
+### Command Line
 
-# Count specific file
+```bash
+# Count a single file
 file-counter myfile.txt
 
-# Count with details
-file-counter --verbose myfile.txt
+# Count multiple files
+file-counter file1.txt file2.txt
 
-# Recursive counting
-file-counter --recursive ./src
+# Count all files in directory
+file-counter --recursive myfolder/
 ```
 
-## Options
+### JavaScript API
 
-- `-r, --recursive` - Recursively count files in subdirectories
-- `-v, --verbose` - Show detailed output
-- `-t, --types` - Specify file types to count (e.g., .js,.ts)
+```javascript
+const { FileCounter } = require("file-counter-nodejs");
 
-## Example Output
+const counter = new FileCounter();
 
+// Count a file
+const result = counter.count("myfile.txt");
+console.log(result);  // {lines: 100, words: 500, chars: 3000}
 ```
-File: example.txt
-Lines: 150
-Words: 892
-Characters: 5432
-```
+
+## Requirements
+
+- Node.js 14+
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT License
+This project is licensed under the MIT License.
 
 ## Author
 
-mizoz
+**mizoz**
+- GitHub: [@mizoz](https://github.com/mizoz)
+
+---
+
+⭐ If you find this project useful, please consider giving it a star on GitHub!
